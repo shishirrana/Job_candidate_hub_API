@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sigma.Services
 {
-    internal class ICommonService
+    public interface ICommonService
     {
+
     }
 }
