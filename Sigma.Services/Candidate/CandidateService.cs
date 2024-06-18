@@ -1,9 +1,9 @@
 ﻿using Sigma.Entity;
 using Sigma.Services.Candidate.Model;
 using Sigma.Services.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Http.ModelBinding;
+
 
 namespace Sigma.Services.Candidate
 {
@@ -20,6 +20,22 @@ namespace Sigma.Services.Candidate
         {
             try
             {
+                var validationContext = new ValidationContext(model, serviceProvider: null, items: null);
+                var validationResults = new List<ValidationResult>();
+                bool isValid = Validator.TryValidateObject(model, validationContext, validationResults, validateAllProperties: true);
+
+                if (!isValid)
+                {
+                    var errors = string.Join("; ", validationResults.Select(r => r.ErrorMessage));
+
+                    return new IResult<string>
+                    {
+                        Status = ResultStatus.Failure,
+                        Message = "Validation error",
+                        Data = errors
+                    };
+                }
+
                 var existingCandidate = candidateCRUD.List().FirstOrDefault(c => c.Email == model.Email);
 
                 if (existingCandidate != null)
@@ -74,6 +90,12 @@ namespace Sigma.Services.Candidate
                 };
             }
         }
+
+        private bool IsValid(CandidateVM model)
+        {
+            return true;
+        }
+
         public IResult<int> Delete(string email)
         {
             try

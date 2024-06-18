@@ -14,7 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddScoped<IServiceRepository<ECandidate>, ServiceRepository<ECandidate>>();
 builder.Services.AddScoped<ICandidateService, CandidateService>();
-
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new TimeSpanConverter());
+});
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
