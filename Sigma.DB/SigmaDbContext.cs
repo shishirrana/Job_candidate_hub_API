@@ -11,6 +11,10 @@ namespace Sigma.DB
 {
     public class SigmaDbContext : DbContext
     {
+        public SigmaDbContext()
+        {
+        }
+
         public SigmaDbContext(DbContextOptions<SigmaDbContext> options) : base(options)
         {
 
