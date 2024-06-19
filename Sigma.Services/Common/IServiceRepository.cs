@@ -16,7 +16,7 @@ namespace Sigma.Services.Common
         public int Delete(string email);
         public t Find(string email);
     }
-    public class ServiceRepository<t> : IBaseService, IServiceRepository<t>, IDisposable where t : class
+    public class ServiceRepository<t> : IServiceRepository<t>, IDisposable where t : class
     {
         protected SigmaDbContext db;
         DbSet<t> entity;
