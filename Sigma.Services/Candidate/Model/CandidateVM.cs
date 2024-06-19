@@ -1,9 +1,4 @@
-﻿
-
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Sigma.Services.Common;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Sigma.Services.Candidate.Model
 {

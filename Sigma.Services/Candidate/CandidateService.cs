@@ -2,7 +2,6 @@
 using Sigma.Services.Candidate.Model;
 using Sigma.Services.Common;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Http.ModelBinding;
 
 
 namespace Sigma.Services.Candidate
