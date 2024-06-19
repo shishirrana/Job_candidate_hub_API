@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Job_candidate_hub_API", "Job_candidate_hub_API.csproj", "{E0C7F062-7142-4CAA-9391-ADF84AE3D7EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Job_candidate_hub_API", "Job_candidate_hub_API.csproj", "{E0C7F062-7142-4CAA-9391-ADF84AE3D7EB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{19D4FF40-938F-4AC5-A876-2966B07E1177}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigma.DB", "..\Sigma.DB\Sigma.DB.csproj", "{DEA8A9F0-009B-40C2-8350-5321AB7A81BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sigma.DB", "..\Sigma.DB\Sigma.DB.csproj", "{DEA8A9F0-009B-40C2-8350-5321AB7A81BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{563317E3-6449-4E79-AB6D-3C3BE3696524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigma.Entity", "..\Sigma.Entity\Sigma.Entity.csproj", "{ABE47FE5-FFF4-4B1E-981A-22738DFFF3D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sigma.Entity", "..\Sigma.Entity\Sigma.Entity.csproj", "{ABE47FE5-FFF4-4B1E-981A-22738DFFF3D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E41481A7-D6F8-4D60-8889-133E989CB17E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigma.Services", "..\Sigma.Services\Sigma.Services.csproj", "{08E63E74-46C9-4491-9982-E0831EA5FC5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sigma.Services", "..\Sigma.Services\Sigma.Services.csproj", "{08E63E74-46C9-4491-9982-E0831EA5FC5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sigma.UnitTest", "..\Sigma.UnitTest\Sigma.UnitTest.csproj", "{3E03897B-D9BA-4891-8C2C-56D7C2E98029}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{08E63E74-46C9-4491-9982-E0831EA5FC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08E63E74-46C9-4491-9982-E0831EA5FC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08E63E74-46C9-4491-9982-E0831EA5FC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E03897B-D9BA-4891-8C2C-56D7C2E98029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E03897B-D9BA-4891-8C2C-56D7C2E98029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E03897B-D9BA-4891-8C2C-56D7C2E98029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E03897B-D9BA-4891-8C2C-56D7C2E98029}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
