@@ -8,34 +8,55 @@ using System.Threading.Tasks;
 
 namespace Sigma.Services.Common
 {
-    public class TimeSpanConverter : JsonConverter<TimeSpan>
+    public class TimeOnlyJsonConverter : JsonConverter<TimeOnly>
     {
-        public override TimeSpan Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override TimeOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             if (reader.TokenType != JsonTokenType.StartObject)
-                throw new JsonException();
+            {
+                throw new JsonException("Expected StartObject token.");
+            }
 
-            reader.Read();
-            if (reader.TokenType != JsonTokenType.PropertyName || reader.GetString() != "ticks")
-                throw new JsonException();
+            int hour = 0;
+            int minute = 0;
 
-            reader.Read();
-            if (reader.TokenType != JsonTokenType.Number)
-                throw new JsonException();
+            while (reader.Read())
+            {
+                if (reader.TokenType == JsonTokenType.EndObject)
+                {
+                    break;
+                }
 
-            long ticks = reader.GetInt64();
-            reader.Read();
-            if (reader.TokenType != JsonTokenType.EndObject)
-                throw new JsonException();
+                if (reader.TokenType == JsonTokenType.PropertyName)
+                {
+                    string propertyName = reader.GetString();
+                    reader.Read();
 
-            return new TimeSpan(ticks);
+                    switch (propertyName)
+                    {
+                        case "hour":
+                            hour = reader.GetInt32();
+                            break;
+                        case "minute":
+                            minute = reader.GetInt32();
+                            break;
+                        default:
+                            throw new JsonException($"Unexpected property: {propertyName}");
+                    }
+                }
+            }
+
+            return new TimeOnly(hour, minute);
         }
 
-        public override void Write(Utf8JsonWriter writer, TimeSpan value, JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter writer, TimeOnly value, JsonSerializerOptions options)
         {
             writer.WriteStartObject();
-            writer.WriteNumber("ticks", value.Ticks);
+            writer.WriteNumber("hour", value.Hour);
+            writer.WriteNumber("minute", value.Minute);
             writer.WriteEndObject();
         }
     }
+
+
 }
