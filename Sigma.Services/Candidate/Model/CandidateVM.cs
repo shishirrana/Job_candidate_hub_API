@@ -21,8 +21,7 @@ namespace Sigma.Services.Candidate.Model
 
         [StringLength(13, ErrorMessage = "Phone number cannot exceed 13 characters.")]
         public string PhoneNumber { get; set; }
-        [JsonConverter(typeof(TimeSpanConverter))]
-        public TimeSpan? CallTimeInterval { get; set; }
+        public TimeOnly CallTimeInterval { get; set; }
 
         public string LinkedInURL { get; set; }
 

@@ -11,7 +11,7 @@ namespace Sigma.Entity
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        public TimeSpan? CallTimeInterval { get; set; }
+        public TimeOnly CallTimeInterval { get; set; }
         public string LinkedInURL { get; set; }
         public string GitHubURL { get; set; }
         public string FreeTextComment { get; set; }
